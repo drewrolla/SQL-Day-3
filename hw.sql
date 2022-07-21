@@ -84,4 +84,11 @@ HAVING COUNT(amount) = 1;
 -- 8. How many free rentals did our stores give away?
 SELECT * FROM payment
 WHERE amount = 0;
+-- In case it's not that simple, here's another answer
+SELECT amount
+FROM payment
+INNER JOIN rental
+ON payment.rental_id = rental.rental_id
+WHERE amount = 0;
+
 
